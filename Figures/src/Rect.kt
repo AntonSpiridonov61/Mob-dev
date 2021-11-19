@@ -18,13 +18,16 @@ class Rect(var x: Int, var y: Int, var width: Int, var height: Int) : Movable, T
     }
 
     override fun rotate(direction: RotateDirection, centerX: Int, centerY: Int) {
-        x = centerX
-        y = centerY
+        width = height.also { height = width }
+        if (centerX == x && centerY == y) { return }
+
         if(direction == RotateDirection.Clockwise) {
-            width += height
-            height = width - height
-            width -= height
+            x = y - centerY + centerX.also { y = -1 * (x - centerX) + centerY }
+        } else {
+            x = -1 * (y - centerY) + centerX.also { y = x - centerX + centerY }
         }
+
+
     }
 
     override fun toString(): String {

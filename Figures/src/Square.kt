@@ -16,8 +16,13 @@ class Square(var x: Int, var y: Int, var side_len: Int) : Figure(0), Movable, Tr
     }
 
     override fun rotate(direction: RotateDirection, centerX: Int, centerY: Int) {
-        x = centerX
-        y = centerY
+        if (centerX == x && centerY == y) { return }
+
+        if(direction == RotateDirection.Clockwise) {
+            x = y - centerY + centerX.also { y = -1 * (x - centerX) + centerY }
+        } else {
+            x = -1 * (y - centerY) + centerX.also { y = x - centerX + centerY }
+        }
     }
 
     override fun toString(): String {

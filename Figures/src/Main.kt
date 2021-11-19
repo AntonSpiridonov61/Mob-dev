@@ -14,22 +14,22 @@ fun main() {
     println(f2.area())
 
 
-    val transformingRect: Transforming = Rect(0,3,1,2)
+    val transformingRect: Transforming = Rect(8,-1,1,2)
     println(transformingRect)
 
     transformingRect.resize(3)
-    println("Resize: $transformingRect")
+    println("Resize(2): $transformingRect")
 
     transformingRect.rotate(RotateDirection.Clockwise, 0, 0)
-    println("Rotate: $transformingRect")
+    println("Rotate(0, 0): $transformingRect")
 
 
     val transformingCircle: Transforming = Circle(3, 0, 2)
     println(transformingCircle)
 
     transformingCircle.resize(2)
-    println("Resize: $transformingCircle")
+    println("Resize(2): $transformingCircle")
 
-    transformingCircle.rotate(RotateDirection.CounterClockwise, 5, 4)
-    println("Rotate: $transformingCircle")
+    transformingCircle.rotate(RotateDirection.Clockwise, 2, 2)
+    println("Rotate(2, 2): $transformingCircle")
 }
